@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "파이프라인 | 쿠팡쇼츠 자동화",
+  description: "상품 발굴부터 업로드까지 6단계 자동화 파이프라인 구조",
+};
+
 const steps = [
   {
     number: 1,

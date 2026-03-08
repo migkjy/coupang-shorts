@@ -131,8 +131,9 @@ export default function DashboardPage() {
       {/* Recent Videos */}
       <section>
         <h2 className="mb-4 text-xl font-semibold">최근 생성 영상</h2>
-        <div className="overflow-hidden rounded-lg border border-gray-800">
-          <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto rounded-lg border border-gray-800">
+          <table className="w-full min-w-[500px] text-left text-sm">
+            <caption className="sr-only">최근 생성된 쇼츠 영상 목록</caption>
             <thead className="border-b border-gray-800 bg-gray-900 text-gray-400">
               <tr>
                 <th className="px-4 py-3 font-medium">제목</th>
@@ -170,25 +171,30 @@ export default function DashboardPage() {
         <h2 className="mb-4 text-xl font-semibold">설정 현황</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            { name: "쿠팡파트너스 API", connected: false },
-            { name: "Claude AI (스크립트)", connected: false },
-            { name: "YouTube API", connected: false },
-            { name: "TTS 엔진", connected: false },
+            { name: "쿠팡파트너스 API", connected: false, hint: ".env에 COUPANG_ACCESS_KEY, COUPANG_SECRET_KEY 설정" },
+            { name: "Claude AI (스크립트)", connected: false, hint: ".env에 ANTHROPIC_API_KEY 설정" },
+            { name: "YouTube API", connected: false, hint: ".env에 YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET 설정" },
+            { name: "TTS 엔진", connected: false, hint: ".env에 TTS_API_KEY 설정" },
           ].map((api) => (
             <div
               key={api.name}
-              className="flex items-center justify-between rounded-lg border border-gray-800 bg-gray-900 px-4 py-3"
+              className="rounded-lg border border-gray-800 bg-gray-900 px-4 py-3"
             >
-              <span className="text-sm">{api.name}</span>
-              <span
-                className={`rounded-full px-2 py-0.5 text-xs ${
-                  api.connected
-                    ? "bg-green-900/50 text-green-400"
-                    : "bg-red-900/50 text-red-400"
-                }`}
-              >
-                {api.connected ? "연결됨" : "미연결"}
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-sm">{api.name}</span>
+                <span
+                  className={`rounded-full px-2 py-0.5 text-xs ${
+                    api.connected
+                      ? "bg-green-900/50 text-green-400"
+                      : "bg-red-900/50 text-red-400"
+                  }`}
+                >
+                  {api.connected ? "연결됨" : "미연결"}
+                </span>
+              </div>
+              {!api.connected && (
+                <p className="mt-1.5 text-xs text-gray-500">{api.hint}</p>
+              )}
             </div>
           ))}
         </div>

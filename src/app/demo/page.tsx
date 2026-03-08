@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "영상 데모 | 쿠팡쇼츠 자동화",
+  description: "생성된 쿠팡파트너스 쇼츠 영상 미리보기",
+};
+
 const mockVideos = [
   {
     id: "vid-001",
