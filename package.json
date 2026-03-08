@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "쿠팡파트너스 상품 YouTube Shorts/Instagram Reels 자동 생성",
   "scripts": {
-    "studio": "npx remotion studio src/index.ts",
-    "preview": "npx remotion studio src/index.ts",
-    "render": "npx remotion render src/index.ts ShortsTemplate out/video.mp4",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "studio": "npx remotion studio src/remotion/index.ts",
+    "preview": "npx remotion studio src/remotion/index.ts",
+    "render": "npx remotion render src/remotion/index.ts ShortsTemplate out/video.mp4",
     "typecheck": "tsc --noEmit",
     "fetch": "ts-node scripts/fetch-products.ts",
     "script": "ts-node scripts/generate-script.ts",
@@ -22,6 +25,7 @@
     "commander": "^12.1.0",
     "dotenv": "^16.4.7",
     "googleapis": "^171.4.0",
+    "next": "15.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remotion": "4.0.290",
@@ -31,10 +35,13 @@
     "@types/node": "20.11.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "ts-node": "10.9.2",
     "typescript": "5.3.3"
   },
   "remotion": {
-    "entryPoint": "src/index.ts"
+    "entryPoint": "src/remotion/index.ts"
   }
 }
