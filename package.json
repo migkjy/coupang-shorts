@@ -16,7 +16,9 @@
     "render-video": "ts-node scripts/render-video.ts",
     "upload": "ts-node scripts/upload-youtube.ts",
     "pipeline": "ts-node scripts/pipeline.ts",
-    "pipeline:dry": "ts-node scripts/pipeline.ts --dry-run"
+    "pipeline:dry": "ts-node scripts/pipeline.ts --dry-run",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
@@ -32,14 +34,20 @@
     "zod": "^3.25.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "20.11.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
+    "@vitejs/plugin-react": "^5.1.4",
     "autoprefixer": "^10.4.20",
+    "jsdom": "^28.1.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "ts-node": "10.9.2",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "vitest": "^4.0.18"
   },
   "remotion": {
     "entryPoint": "src/remotion/index.ts"
