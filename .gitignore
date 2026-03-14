@@ -8,3 +8,4 @@ dist/
 *.mov
 *.webm
 .next/
+.claude/knowledge/api-keys.md
